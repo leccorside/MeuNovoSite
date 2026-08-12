@@ -1,0 +1,19 @@
+{
+  "name": "Leccorside — Developer and Design",
+  "short_name": "Leccorside",
+  "description": "Portfólio de Johnathan Amorim Rios, Full Stack Developer e Designer.",
+  "lang": "pt-BR",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#090909",
+  "theme_color": "#090909",
+  "icons": [
+    {
+      "src": "/imagens/favi.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

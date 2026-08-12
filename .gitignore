@@ -1,0 +1,56 @@
+# Dependencias
+node_modules/
+
+# Segredos e configuracoes locais
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Saidas geradas por testes e ferramentas
+coverage/
+.nyc_output/
+.cache/
+.parcel-cache/
+.vite/
+.eslintcache
+*.tsbuildinfo
+
+# Arquivos temporarios e logs
+tmp/
+temp/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.tmp
+*.temp
+*.bak
+*.swp
+*~
+
+# Pacotes e artefatos locais de publicacao
+.site-deploy/
+site-build*.tar.gz
+*.zip
+
+# Configuracoes locais de assistentes e editores
+.claude/
+.vscode/
+.idea/
+*.code-workspace
+
+# Arquivos do sistema operacional
+.DS_Store
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Relatorios locais
+lighthouse-report*.html
+lighthouse-report*.json
+.lighthouseci/

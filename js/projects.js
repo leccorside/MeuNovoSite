@@ -35,16 +35,104 @@ const skills = [
   ['Unity', 'unity.webp', 'CREATIVE TECH'], ['Unreal', 'Unreal.webp', 'CREATIVE TECH']
 ];
 
-function projectMarkup(project, index) {
-  const images = project.images.map((src, imageIndex) => `<button class="project-shot shot-${imageIndex + 1}" data-project="${index}" data-image="${imageIndex}" aria-label="Ampliar imagem ${imageIndex + 1} de ${project.name}"><img src="${src}" alt="${project.name} — tela ${imageIndex + 1}" loading="lazy" decoding="async"></button>`).join('');
-  return `<article class="project project-${project.theme} reveal">
-    <div class="project-copy"><span class="project-number">[${project.id}]</span><p class="project-category">${project.category}</p><h3>${project.name}</h3><p>${project.description}</p><div class="tags">${project.tags.map(tag => `<span>${tag}</span>`).join('')}</div><button class="project-open" data-project="${index}" data-image="0">EXPLORE O CASE <span>↗</span></button></div>
-    <div class="project-visual" data-cursor="VIEW">${images}<span class="visual-code">${project.id} / JAR</span></div>
-  </article>`;
+function element(tag, className, text) {
+  const node = document.createElement(tag);
+  if (className) node.className = className;
+  if (text !== undefined) node.textContent = text;
+  return node;
 }
 
-document.querySelector('#project-list').innerHTML = portfolioProjects.map(projectMarkup).join('');
-document.querySelector('#archive-track').innerHTML = archiveProjects.map(([name, image, type], i) => `<article class="archive-card" data-cursor="VIEW"><span>0${i + 1} / 0${archiveProjects.length}</span><button class="archive-image" data-src="${image}" data-name="${name}" aria-label="Ampliar ${name}"><img src="${image}" alt="${name}" loading="lazy"></button><div><h3>${name}</h3><p>${type}</p></div></article>`).join('');
-document.querySelector('#skill-grid').innerHTML = skills.map(([name, file, group], i) => `<article class="skill-card reveal" style="--i:${i}"><span>${String(i + 1).padStart(2, '0')}</span><img src="imagens/skills/${file}" alt="Logo ${name}" loading="lazy" width="86" height="86"><div><h3>${name}</h3><p>${group}</p></div></article>`).join('');
+function tagsElement(tags) {
+  const container = element('div', 'tags');
+  tags.forEach(tag => container.append(element('span', '', tag)));
+  return container;
+}
+
+function projectElement(project, index) {
+  const article = element('article', `project project-${project.theme} reveal`);
+  const copy = element('div', 'project-copy');
+  copy.append(
+    element('span', 'project-number', `[${project.id}]`),
+    element('p', 'project-category', project.category),
+    element('h3', '', project.name),
+    element('p', '', project.description),
+    tagsElement(project.tags)
+  );
+
+  const openButton = element('button', 'project-open');
+  openButton.type = 'button';
+  openButton.dataset.project = String(index);
+  openButton.dataset.image = '0';
+  openButton.append(document.createTextNode('EXPLORE O CASE '), element('span', '', '↗'));
+  copy.append(openButton);
+
+  const visual = element('div', 'project-visual');
+  visual.dataset.cursor = 'VIEW';
+  project.images.forEach((src, imageIndex) => {
+    const button = element('button', `project-shot shot-${imageIndex + 1}`);
+    button.type = 'button';
+    button.dataset.project = String(index);
+    button.dataset.image = String(imageIndex);
+    button.setAttribute('aria-label', `Ampliar imagem ${imageIndex + 1} de ${project.name}`);
+
+    const image = element('img');
+    image.src = src;
+    image.alt = `${project.name} — tela ${imageIndex + 1}`;
+    image.loading = 'lazy';
+    image.decoding = 'async';
+    image.width = 1920;
+    image.height = 1080;
+    button.append(image);
+    visual.append(button);
+  });
+  visual.append(element('span', 'visual-code', `${project.id} / JAR`));
+  article.append(copy, visual);
+  return article;
+}
+
+function archiveElement([name, imageSource, type], index) {
+  const article = element('article', 'archive-card');
+  article.dataset.cursor = 'VIEW';
+  article.append(element('span', '', `0${index + 1} / 0${archiveProjects.length}`));
+
+  const button = element('button', 'archive-image');
+  button.type = 'button';
+  button.dataset.src = imageSource;
+  button.dataset.name = name;
+  button.setAttribute('aria-label', `Ampliar ${name}`);
+  const image = element('img');
+  image.src = imageSource;
+  image.alt = name;
+  image.loading = 'lazy';
+  image.decoding = 'async';
+  image.width = 1920;
+  image.height = 1080;
+  button.append(image);
+
+  const copy = element('div');
+  copy.append(element('h3', '', name), element('p', '', type));
+  article.append(button, copy);
+  return article;
+}
+
+function skillElement([name, file, group], index) {
+  const article = element('article', 'skill-card reveal');
+  article.style.setProperty('--i', String(index));
+  article.append(element('span', '', String(index + 1).padStart(2, '0')));
+  const image = element('img');
+  image.src = `imagens/skills/${file}`;
+  image.alt = `Logo ${name}`;
+  image.loading = 'lazy';
+  image.width = 86;
+  image.height = 86;
+  const copy = element('div');
+  copy.append(element('h3', '', name), element('p', '', group));
+  article.append(image, copy);
+  return article;
+}
+
+document.querySelector('#project-list').append(...portfolioProjects.map(projectElement));
+document.querySelector('#archive-track').append(...archiveProjects.map(archiveElement));
+document.querySelector('#skill-grid').append(...skills.map(skillElement));
 
 window.portfolioProjects = portfolioProjects;

@@ -1,0 +1,4 @@
+Contact: mailto:leccorside@gmail.com
+Expires: 2027-08-12T23:59:59Z
+Preferred-Languages: pt-BR, en
+Canonical: https://leccorside.com.br/.well-known/security.txt
