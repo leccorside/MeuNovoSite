@@ -4,7 +4,11 @@ const portfolioProjects = [
     description: 'Produtos digitais para eventos e check-in apresentados como uma experiência coesa, com fluxos claros e foco no uso mobile.',
     tags: ['APLICAÇÕES', 'WEB', 'PRODUTO'], theme: 'orange',
     images: ['imagens/projetos/apps/1-setaeventos.webp', 'imagens/projetos/apps/2-setacheckin.webp'],
-    links: ['', ''], linkLabels: []
+    links: [
+      'https://apkpure.net/setaeventos/br.com.sistemaseta.SetaEventos',
+      'https://apkpure.net/setacheck-in/br.com.sistemaseta.SetaCheckin'
+    ],
+    linkLabels: ['SetaEventos', 'SetaCheck-in']
   },
   {
     id: '02', name: 'Tradebox', category: 'Fintech Product Prototype',
