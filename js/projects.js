@@ -4,7 +4,7 @@ const portfolioProjects = [
     description: 'Produtos digitais para eventos e check-in apresentados como uma experiência coesa, com fluxos claros e foco no uso mobile.',
     tags: ['APLICAÇÕES', 'WEB', 'PRODUTO'], theme: 'orange',
     images: ['imagens/projetos/apps/1-setaeventos.webp', 'imagens/projetos/apps/2-setacheckin.webp'],
-    links: ['', '']
+    links: ['', ''], linkLabels: []
   },
   {
     id: '02', name: 'Tradebox', category: 'Fintech Product Prototype',
@@ -15,14 +15,16 @@ const portfolioProjects = [
       'https://www.figma.com/file/9tKF0uHx6AkZIAQ6SdpNFJ/Tradebox?type=design&t=2b7WNSZw47jAlR7I-6',
       'https://www.figma.com/file/3lv27SMspw8U1TMpgdXNzV/InterFarma-Homepage?type=design&t=2b7WNSZw47jAlR7I-6',
       'https://www.figma.com/file/EgibF9td2hZu8GTds6Ompd/Untitled?type=design&node-id=1-2&mode=design'
-    ]
+    ],
+    linkLabels: ['Tradebox', 'InterFarma', 'Health']
   },
   {
     id: '03', name: 'Creative Web', category: 'Sites & Digital Experiences',
     description: 'Uma seleção de experiências web para saúde, educação, negócios e marcas pessoais. Diferentes universos visuais conectados por clareza, hierarquia e conversão.',
     tags: ['WEB DESIGN', 'DEVELOPMENT', 'UX'], theme: 'lime',
     images: ['imagens/projetos/sites/5-mauman-health.webp', 'imagens/projetos/sites/10-musicall.webp', 'imagens/projetos/sites/35-kite.webp'],
-    links: ['https://mauman.com.br/health/', 'https://centromusicall.com/', 'https://kiteaio.com/']
+    links: ['https://mauman.com.br/health/', 'https://centromusicall.com/', 'https://kiteaio.com/'],
+    linkLabels: ['Mauman Health', 'Centro Musicall', 'Kite']
   }
 ];
 
@@ -64,15 +66,23 @@ function projectElement(project, index) {
     tagsElement(project.tags)
   );
 
-  const firstProjectUrl = project.links.find(Boolean);
-  if (firstProjectUrl) {
-    const projectLink = element('a', 'project-open');
-    projectLink.href = firstProjectUrl;
-    projectLink.target = '_blank';
-    projectLink.rel = 'noopener noreferrer';
-    projectLink.setAttribute('aria-label', `Visitar ${project.name} em uma nova aba`);
-    projectLink.append(document.createTextNode('VISITAR PROJETO '), element('span', '', '↗'));
-    copy.append(projectLink);
+  const availableLinks = project.links
+    .map((url, linkIndex) => ({url, label: project.linkLabels[linkIndex]}))
+    .filter(item => item.url);
+  if (availableLinks.length) {
+    const projectLinks = element('nav', 'project-links');
+    projectLinks.setAttribute('aria-label', `Links do case ${project.name}`);
+    projectLinks.append(element('span', 'project-links-label', 'ABRIR PROJETOS'));
+    availableLinks.forEach(item => {
+      const link = element('a', 'project-link', item.label);
+      link.href = item.url;
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      link.setAttribute('aria-label', `Abrir ${item.label} em uma nova aba`);
+      link.append(element('span', '', '↗'));
+      projectLinks.append(link);
+    });
+    copy.append(projectLinks);
   }
 
   const visual = element('div', 'project-visual');
@@ -119,7 +129,15 @@ function archiveElement([name, imageSource, type, url], index) {
   button.append(image);
 
   const copy = element('div');
-  copy.append(element('h3', '', name), element('p', '', type));
+  const meta = element('div', 'archive-meta');
+  meta.append(element('h3', '', name), element('p', '', type));
+  const link = element('a', 'archive-link', 'ABRIR PROJETO');
+  link.href = url;
+  link.target = '_blank';
+  link.rel = 'noopener noreferrer';
+  link.setAttribute('aria-label', `Abrir ${name} em uma nova aba`);
+  link.append(element('span', '', '↗'));
+  copy.append(meta, link);
   article.append(button, copy);
   return article;
 }
