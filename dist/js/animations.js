@@ -36,16 +36,6 @@ if (!reduceMotion) {
   addEventListener('mousemove', event => { mouseX = event.clientX - innerWidth / 2; mouseY = event.clientY - innerHeight / 2; if (!ticking) requestAnimationFrame(updateParallax); ticking = true; });
   function updateParallax() { parallaxItems.forEach(el => { const speed = Number(el.dataset.parallax); el.style.transform = `translate3d(${mouseX * speed}px,${mouseY * speed}px,0)`; }); ticking = false; }
 
-  const archive = document.querySelector('.archive'); const track = document.querySelector('.archive-track');
-  function updateArchive() {
-    const rect = archive.getBoundingClientRect();
-    if (rect.top <= 0 && rect.bottom >= innerHeight) {
-      const progress = Math.min(1, Math.max(0, -rect.top / (archive.offsetHeight - innerHeight)));
-      const travel = Math.max(0, track.scrollWidth - innerWidth + 80);
-      track.style.transform = `translate3d(${-progress * travel}px,0,0)`;
-    }
-  }
-  addEventListener('scroll', () => requestAnimationFrame(updateArchive), {passive:true}); updateArchive();
 }
 
 const timeline = document.querySelector('.timeline');

@@ -2,28 +2,28 @@
   { "tipo": "sites", "imagem": "images/projetos/sites/online/1-mauman.webp", "titulo": "Mauman", "url": "https://mauman.com.br/" },
   { "tipo": "sites", "imagem": "images/projetos/sites/online/3-dom-media.webp", "titulo": "Agência Dom Media", "url": "https://dommedia.com.br/" },
 
-  { "tipo": "sites", "imagem": "images/projetos/sites/online/osteoartritenapratica.webp", "titulo": "Osteoartrite na prática", "url": "https://osteoartritenapratica.com.br/" },
+  { "tipo": "sites", "imagem": "images/projetos/sites/online/osteoartritenapratica.webp", "titulo": "Osteoartrite na prática", "url": "" },
   { "tipo": "sites", "imagem": "images/projetos/sites/online/higisof.webp", "titulo": "Higisof", "url": "https://higisof.com.br/" },
   { "tipo": "sites", "imagem": "images/projetos/sites/online/prontosauderj.webp", "titulo": "Pronto saúde rj", "url": "https://prontosauderj.com.br/" },
 
-  { "tipo": "sites", "imagem": "images/projetos/sites/online/edificarmais.webp", "titulo": "Edificar Mais", "url": "https://edificarmaisengenharia.com/" },
+  { "tipo": "sites", "imagem": "images/projetos/sites/online/edificarmais.webp", "titulo": "Edificar Mais", "url": "" },
   { "tipo": "sites", "imagem": "images/projetos/sites/online/lianepinto.webp", "titulo": "Liane Pinto", "url": "https://lianepintodh.com/" },
   { "tipo": "sites", "imagem": "images/projetos/sites/online/ondasul.webp", "titulo": "Onda Sul Engenharia", "url": "https://ondasul.ind.br/" },
 
   { "tipo": "sites", "imagem": "images/projetos/sites/online/keisan.webp", "titulo": "Keisan", "url": "https://keisan.com.br/" },
-  { "tipo": "sites", "imagem": "images/projetos/sites/online/4-borogodo.webp", "titulo": "Borogodó", "url": "https://borogodo.co/" },
+  { "tipo": "sites", "imagem": "images/projetos/sites/online/4-borogodo.webp", "titulo": "Borogodó", "url": "" },
   { "tipo": "sites", "imagem": "images/projetos/sites/online/5-mauman-health.webp", "titulo": "Mauman Heath", "url": "https://mauman.com.br/health/" },
   { "tipo": "sites", "imagem": "images/projetos/sites/online/6-andre-roncon.webp", "titulo": "André Roncon", "url": "https://andreroncon.com.br/" },
 
-  { "tipo": "sites", "imagem": "images/projetos/sites/online/8-dra.carolina.webp", "titulo": "Dra. Carolina", "url": "http://dracarolinamusse.com.br/" },
+  { "tipo": "sites", "imagem": "images/projetos/sites/online/8-dra.carolina.webp", "titulo": "Dra. Carolina", "url": "https://dracarolinamusse.com.br/" },
   { "tipo": "sites", "imagem": "images/projetos/sites/online/9-explorando-segredos-e-misterios.webp", "titulo": "Explorando Segredos e Mistérios", "url": "https://explorandosegredosmisterios.com/" },
   { "tipo": "sites", "imagem": "images/projetos/sites/online/10-musicall.webp", "titulo": "Centro Musicall", "url": "https://centromusicall.com/" },
   { "tipo": "sites", "imagem": "images/projetos/sites/online/14-rezende-netto.webp", "titulo": "Rezende Netto Advogados", "url": "https://rezendenetto.adv.br/" },
 
   { "tipo": "sites", "imagem": "images/projetos/sites/online/aline-bento.webp", "titulo": "Dra. Aline Bento", "url": "https://draalinebento.com.br/" },
-  { "tipo": "sites", "imagem": "images/projetos/sites/online/celene-bragion.webp", "titulo": "Dra. Celene Bragion", "url": "http://dracelenebragion.com.br/" },
+  { "tipo": "sites", "imagem": "images/projetos/sites/online/celene-bragion.webp", "titulo": "Dra. Celene Bragion", "url": "https://dracelenebragion.com.br/" },
   { "tipo": "sites", "imagem": "images/projetos/sites/online/livia-paulinelli.webp", "titulo": "Dra. Livia Paulinelli", "url": "https://draliviapaulinelli.com.br/" },
-  { "tipo": "sites", "imagem": "images/projetos/sites/online/evani.webp", "titulo": "Evani Pecci", "url": "https://evanipecci.com.br" },
+  { "tipo": "sites", "imagem": "images/projetos/sites/online/evani.webp", "titulo": "Evani Pecci", "url": "https://evanipecci.com.br/" },
   { "tipo": "sites", "imagem": "images/projetos/sites/online/gastros-brasil.webp", "titulo": "Gastros Bahia", "url": "https://www.gastrosbahia.com.br/" },
   { "tipo": "sites", "imagem": "images/projetos/sites/online/marias.webp", "titulo": "Marias Pedras", "url": "https://mariaspedrasdecorativas.com.br/" },
 
@@ -38,12 +38,12 @@
 
  
   { "tipo": "sites", "imagem": "images/projetos/sites/online/33-tisan-engenharia.webp", "titulo": "Tisan Engenharia", "url": "https://tisanengenharia.com.br/" },
-  { "tipo": "sites", "imagem": "images/projetos/sites/online/35-kite.webp", "titulo": "Kite", "url": "https://kiteaio.com/" },
-  { "tipo": "sites", "imagem": "images/projetos/sites/online/36-jump-treinamentos.webp", "titulo": "Jump Treinamentos", "url": "https://jumptreinamentos.com.br/" },
-  { "tipo": "sites", "imagem": "images/projetos/sites/online/37-itapopo.webp", "titulo": "Itapopo", "url": "http://itapopo.com/" },
+  { "tipo": "sites", "imagem": "images/projetos/sites/online/35-kite.webp", "titulo": "Kite", "url": "" },
+  { "tipo": "sites", "imagem": "images/projetos/sites/online/36-jump-treinamentos.webp", "titulo": "Jump Treinamentos", "url": "" },
+  { "tipo": "sites", "imagem": "images/projetos/sites/online/37-itapopo.webp", "titulo": "Itapopo", "url": "https://itapopo.com/" },
   { "tipo": "sites", "imagem": "images/projetos/sites/online/38-horizen.webp", "titulo": "Horizen", "url": "https://horizencapital.com/" },
 
-  { "tipo": "sites", "imagem": "images/projetos/sites/online/41-am-containers.webp", "titulo": "AM Containers", "url": "https://leccorside.github.io/am" },
+  { "tipo": "sites", "imagem": "images/projetos/sites/online/41-am-containers.webp", "titulo": "AM Containers", "url": "https://leccorside.github.io/am/" },
   { "tipo": "sites", "imagem": "images/projetos/sites/online/brisa.webp", "titulo": "Brisa", "url": "https://brisa.com.br/" },
 
 
@@ -79,7 +79,7 @@
   { "tipo": "prototipos", "imagem": "images/projetos/prototipos/2-health.webp", "titulo": "Health", "url": "https://www.figma.com/file/EgibF9td2hZu8GTds6Ompd/Untitled?type=design&node-id=1-2&mode=design" },
   { "tipo": "prototipos", "imagem": "images/projetos/prototipos/3-delta-24.webp", "titulo": "Delta 24", "url": "https://www.figma.com/file/3f9tekBbk5pYBoEqYMUgcO/Untitled?type=design&node-id=0-1&mode=design&t=q8wMDs0pD09KXg2W-0" },
   { "tipo": "prototipos", "imagem": "images/projetos/prototipos/4-jesus-e-bom.webp", "titulo": "Jesus é Bom", "url": "https://www.figma.com/file/0OzBkUhuGwnA0IMwirGbvb/Untitled?type=design&node-id=49%3A3296&mode=design&t=r16uRMkvlayq7cye-1" },
-  { "tipo": "prototipos", "imagem": "images/projetos/prototipos/5-servicos.webp", "titulo": "Serviços", "url": "https://www.figma.com/file/NOsy4gjZE5hUMu4znqkZI4/Untitled?type=design&t=2b7WNSZw47jAlR7I-6" },
+  { "tipo": "prototipos", "imagem": "images/projetos/prototipos/5-servicos.webp", "titulo": "Serviços", "url": "" },
   { "tipo": "prototipos", "imagem": "images/projetos/prototipos/6-tradebox.webp", "titulo": "Trade Box", "url": "https://www.figma.com/file/9tKF0uHx6AkZIAQ6SdpNFJ/Tradebox?type=design&t=2b7WNSZw47jAlR7I-6" },
   { "tipo": "prototipos", "imagem": "images/projetos/prototipos/7-telemedicina.webp", "titulo": "Telemedicina", "url": "https://www.figma.com/file/zcwAutDUgBkNCdkytH3llX/Dekstop-App?type=design&t=2b7WNSZw47jAlR7I-6" },
   { "tipo": "prototipos", "imagem": "images/projetos/prototipos/8-inter-farma.webp", "titulo": "InterFarma", "url": "https://www.figma.com/file/3lv27SMspw8U1TMpgdXNzV/InterFarma-Homepage?type=design&t=2b7WNSZw47jAlR7I-6" },
@@ -92,7 +92,7 @@
   { "tipo": "prototipos", "imagem": "images/projetos/prototipos/15-agensie.webp", "titulo": "Agensie", "url": "https://www.figma.com/file/utRNjLxMtMX4tfhcAWgg6A/Agensie?type=design&node-id=0%3A1&mode=design&t=200aGtpnrhxb1p7z-1" },
 
 
-  { "tipo": "lojas", "imagem": "images/projetos/lojas/chacauhaa.webp", "titulo": "Chacauhaa", "url": "https://chacauhaa.com.br/" },
+  { "tipo": "lojas", "imagem": "images/projetos/lojas/chacauhaa.webp", "titulo": "Chacauhaa", "url": "" },
   { "tipo": "lojas", "imagem": "images/projetos/lojas/studiocenter.webp", "titulo": "Studio Center", "url": "https://studiocenter.com.py/" },
 
   { "tipo": "artes", "imagem": "images/projetos/artes/ARTE1.webp", "titulo": "ARTE", "url": "" },
