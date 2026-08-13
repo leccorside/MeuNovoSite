@@ -3,29 +3,36 @@ const portfolioProjects = [
     id: '01', name: 'Ecossistema Seta', category: 'Enterprise Platforms',
     description: 'Um ecossistema de produtos digitais documentado em múltiplas frentes — treinamento, eventos, proteção, check-in e gestão — apresentado como uma experiência de produto coesa.',
     tags: ['APLICAÇÕES', 'WEB', 'PRODUTO'], theme: 'orange',
-    images: ['imagens/projetos/sites/31-sistema-seta.webp', 'imagens/projetos/apps/1-setaeventos.webp', 'imagens/projetos/apps/2-setacheckin.webp']
+    images: ['imagens/projetos/sites/31-sistema-seta.webp', 'imagens/projetos/apps/1-setaeventos.webp', 'imagens/projetos/apps/2-setacheckin.webp'],
+    links: ['https://sistemaseta.com/', '', '']
   },
   {
     id: '02', name: 'Tradebox', category: 'Fintech Product Prototype',
     description: 'Fluxos completos de um produto financeiro: onboarding, dashboards, fundos, mercado e pagamentos organizados em uma arquitetura visual mobile-first.',
     tags: ['PROTOTYPE', 'UX/UI', 'MOBILE'], theme: 'purple',
-    images: ['imagens/projetos/prototipos/6-tradebox.webp', 'imagens/projetos/prototipos/8-inter-farma.webp', 'imagens/projetos/prototipos/2-health.webp']
+    images: ['imagens/projetos/prototipos/6-tradebox.webp', 'imagens/projetos/prototipos/8-inter-farma.webp', 'imagens/projetos/prototipos/2-health.webp'],
+    links: [
+      'https://www.figma.com/file/9tKF0uHx6AkZIAQ6SdpNFJ/Tradebox?type=design&t=2b7WNSZw47jAlR7I-6',
+      'https://www.figma.com/file/3lv27SMspw8U1TMpgdXNzV/InterFarma-Homepage?type=design&t=2b7WNSZw47jAlR7I-6',
+      'https://www.figma.com/file/EgibF9td2hZu8GTds6Ompd/Untitled?type=design&node-id=1-2&mode=design'
+    ]
   },
   {
     id: '03', name: 'Creative Web', category: 'Sites & Digital Experiences',
     description: 'Uma seleção de experiências web para saúde, educação, negócios e marcas pessoais. Diferentes universos visuais conectados por clareza, hierarquia e conversão.',
     tags: ['WEB DESIGN', 'DEVELOPMENT', 'UX'], theme: 'lime',
-    images: ['imagens/projetos/sites/5-mauman-health.webp', 'imagens/projetos/sites/10-musicall.webp', 'imagens/projetos/sites/35-kite.webp']
+    images: ['imagens/projetos/sites/5-mauman-health.webp', 'imagens/projetos/sites/10-musicall.webp', 'imagens/projetos/sites/35-kite.webp'],
+    links: ['https://mauman.com.br/health/', 'https://centromusicall.com/', 'https://kiteaio.com/']
   }
 ];
 
 const archiveProjects = [
-  ['Nutri AI', 'imagens/projetos/sites/nutri-ai.webp', 'AI / HEALTH'],
-  ['Onda Sul', 'imagens/projetos/sites/ondasul.webp', 'WEB EXPERIENCE'],
-  ['Keisan', 'imagens/projetos/sites/keisan.webp', 'CREATIVE WEB'],
-  ['Seta Academy', 'imagens/projetos/apps/seta-academy.webp', 'MOBILE APP'],
-  ['Chacauhaa', 'imagens/projetos/lojas/chacauhaa.webp', 'E-COMMERCE'],
-  ['Toto Garden', 'imagens/projetos/prototipos/9-totogarden.webp', 'PRODUCT DESIGN']
+  ['Nutri AI', 'imagens/projetos/sites/nutri-ai.webp', 'AI / HEALTH', 'https://leccorside.com.br/uai/?page_id=1288'],
+  ['Onda Sul', 'imagens/projetos/sites/ondasul.webp', 'WEB EXPERIENCE', 'https://ondasul.ind.br/'],
+  ['Keisan', 'imagens/projetos/sites/keisan.webp', 'CREATIVE WEB', 'https://keisan.com.br/'],
+  ['Seta Academy', 'imagens/projetos/apps/seta-academy.webp', 'MOBILE APP', 'https://play.google.com/store/apps/details?id=com.setacademy.comunidade'],
+  ['Chacauhaa', 'imagens/projetos/lojas/chacauhaa.webp', 'E-COMMERCE', 'https://chacauhaa.com.br/'],
+  ['Toto Garden', 'imagens/projetos/prototipos/9-totogarden.webp', 'PRODUCT DESIGN', 'https://www.figma.com/file/HM7srxcjHmp1XXXV2iI7Ou/TOTOGARDEN?type=design&node-id=0-1&mode=design&t=3FlhFg1eeXg1v9Bd-0']
 ];
 
 const skills = [
@@ -52,12 +59,13 @@ function projectElement(project, index) {
   const article = element('article', `project project-${project.theme} reveal`);
   const copy = element('div', 'project-copy');
   copy.append(element('span', 'project-number', `[${project.id}]`), element('p', 'project-category', project.category), element('h3', '', project.name), element('p', '', project.description), tagsElement(project.tags));
-  const openButton = element('button', 'project-open');
-  openButton.type = 'button';
-  openButton.dataset.project = String(index);
-  openButton.dataset.image = '0';
-  openButton.append(document.createTextNode('EXPLORE O CASE '), element('span', '', '↗'));
-  copy.append(openButton);
+  const projectLink = element('a', 'project-open');
+  projectLink.href = project.links[0];
+  projectLink.target = '_blank';
+  projectLink.rel = 'noopener noreferrer';
+  projectLink.setAttribute('aria-label', `Visitar ${project.name} em uma nova aba`);
+  projectLink.append(document.createTextNode('VISITAR PROJETO '), element('span', '', '↗'));
+  copy.append(projectLink);
   const visual = element('div', 'project-visual');
   visual.dataset.cursor = 'VIEW';
   project.images.forEach((src, imageIndex) => {
@@ -75,12 +83,12 @@ function projectElement(project, index) {
   return article;
 }
 
-function archiveElement([name, imageSource, type], index) {
+function archiveElement([name, imageSource, type, url], index) {
   const article = element('article', 'archive-card');
   article.dataset.cursor = 'VIEW';
   article.append(element('span', '', `0${index + 1} / 0${archiveProjects.length}`));
-  const button = element('button', 'archive-image');
-  button.type = 'button'; button.dataset.src = imageSource; button.dataset.name = name; button.setAttribute('aria-label', `Ampliar ${name}`);
+  const button = element('a', 'archive-image');
+  button.href = url; button.target = '_blank'; button.rel = 'noopener noreferrer'; button.setAttribute('aria-label', `Visitar ${name} em uma nova aba`);
   const image = element('img');
   image.src = imageSource; image.alt = name; image.loading = 'lazy'; image.decoding = 'async'; image.width = 1920; image.height = 1080;
   button.append(image);

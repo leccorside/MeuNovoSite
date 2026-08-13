@@ -23,21 +23,31 @@ document.querySelectorAll('a[href^="#"]').forEach(link => link.addEventListener(
 const lightbox = document.querySelector('.lightbox');
 const lightboxImage = lightbox.querySelector('img');
 const lightboxCaption = lightbox.querySelector('figcaption');
+const lightboxLink = lightbox.querySelector('.lightbox-link');
 let currentGallery = []; let currentImage = 0;
 
-function showLightbox(images, index, title) {
+function showLightbox(images, index, title, links = []) {
   currentGallery = images; currentImage = index;
   lightboxImage.src = currentGallery[currentImage];
   lightboxImage.alt = `${title} — imagem ${currentImage + 1} de ${currentGallery.length}`;
   lightboxCaption.textContent = `${title} · ${String(currentImage + 1).padStart(2, '0')} / ${String(currentGallery.length).padStart(2, '0')}`;
+  const projectUrl = links[currentImage];
+  lightboxLink.hidden = !projectUrl;
+  if (projectUrl) {
+    lightboxLink.href = projectUrl;
+    lightboxLink.setAttribute('aria-label', `Visitar ${title} em uma nova aba`);
+  }
   if (!lightbox.open) lightbox.showModal();
 }
-function moveLightbox(step) { currentImage = (currentImage + step + currentGallery.length) % currentGallery.length; showLightbox(currentGallery, currentImage, lightboxCaption.textContent.split(' · ')[0]); }
+function moveLightbox(step) {
+  currentImage = (currentImage + step + currentGallery.length) % currentGallery.length;
+  const title = lightboxCaption.textContent.split(' · ')[0];
+  const project = window.portfolioProjects.find(item => item.name === title);
+  showLightbox(currentGallery, currentImage, title, project?.links);
+}
 document.addEventListener('click', event => {
   const projectTrigger = event.target.closest('[data-project][data-image]');
-  if (projectTrigger) { const project = window.portfolioProjects[projectTrigger.dataset.project]; showLightbox(project.images, Number(projectTrigger.dataset.image), project.name); }
-  const archiveTrigger = event.target.closest('.archive-image');
-  if (archiveTrigger) showLightbox([archiveTrigger.dataset.src], 0, archiveTrigger.dataset.name);
+  if (projectTrigger) { const project = window.portfolioProjects[projectTrigger.dataset.project]; showLightbox(project.images, Number(projectTrigger.dataset.image), project.name, project.links); }
 });
 lightbox.querySelector('.lightbox-close').addEventListener('click', () => lightbox.close());
 lightbox.querySelector('.lightbox-prev').addEventListener('click', () => moveLightbox(-1));
