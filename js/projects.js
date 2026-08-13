@@ -1,10 +1,10 @@
 const portfolioProjects = [
   {
     id: '01', name: 'Ecossistema Seta', category: 'Enterprise Platforms',
-    description: 'Um ecossistema de produtos digitais documentado em múltiplas frentes — treinamento, eventos, proteção, check-in e gestão — apresentado como uma experiência de produto coesa.',
+    description: 'Produtos digitais para eventos e check-in apresentados como uma experiência coesa, com fluxos claros e foco no uso mobile.',
     tags: ['APLICAÇÕES', 'WEB', 'PRODUTO'], theme: 'orange',
-    images: ['imagens/projetos/sites/31-sistema-seta.webp', 'imagens/projetos/apps/1-setaeventos.webp', 'imagens/projetos/apps/2-setacheckin.webp'],
-    links: ['https://sistemaseta.com/', '', '']
+    images: ['imagens/projetos/apps/1-setaeventos.webp', 'imagens/projetos/apps/2-setacheckin.webp'],
+    links: ['', '']
   },
   {
     id: '02', name: 'Tradebox', category: 'Fintech Product Prototype',
@@ -27,10 +27,8 @@ const portfolioProjects = [
 ];
 
 const archiveProjects = [
-  ['Nutri AI', 'imagens/projetos/sites/nutri-ai.webp', 'AI / HEALTH', 'https://leccorside.com.br/uai/?page_id=1288'],
   ['Onda Sul', 'imagens/projetos/sites/ondasul.webp', 'WEB EXPERIENCE', 'https://ondasul.ind.br/'],
   ['Keisan', 'imagens/projetos/sites/keisan.webp', 'CREATIVE WEB', 'https://keisan.com.br/'],
-  ['Seta Academy', 'imagens/projetos/apps/seta-academy.webp', 'MOBILE APP', 'https://play.google.com/store/apps/details?id=com.setacademy.comunidade'],
   ['Chacauhaa', 'imagens/projetos/lojas/chacauhaa.webp', 'E-COMMERCE', 'https://chacauhaa.com.br/'],
   ['Toto Garden', 'imagens/projetos/prototipos/9-totogarden.webp', 'PRODUCT DESIGN', 'https://www.figma.com/file/HM7srxcjHmp1XXXV2iI7Ou/TOTOGARDEN?type=design&node-id=0-1&mode=design&t=3FlhFg1eeXg1v9Bd-0']
 ];
@@ -66,13 +64,16 @@ function projectElement(project, index) {
     tagsElement(project.tags)
   );
 
-  const projectLink = element('a', 'project-open');
-  projectLink.href = project.links[0];
-  projectLink.target = '_blank';
-  projectLink.rel = 'noopener noreferrer';
-  projectLink.setAttribute('aria-label', `Visitar ${project.name} em uma nova aba`);
-  projectLink.append(document.createTextNode('VISITAR PROJETO '), element('span', '', '↗'));
-  copy.append(projectLink);
+  const firstProjectUrl = project.links.find(Boolean);
+  if (firstProjectUrl) {
+    const projectLink = element('a', 'project-open');
+    projectLink.href = firstProjectUrl;
+    projectLink.target = '_blank';
+    projectLink.rel = 'noopener noreferrer';
+    projectLink.setAttribute('aria-label', `Visitar ${project.name} em uma nova aba`);
+    projectLink.append(document.createTextNode('VISITAR PROJETO '), element('span', '', '↗'));
+    copy.append(projectLink);
+  }
 
   const visual = element('div', 'project-visual');
   visual.dataset.cursor = 'VIEW';
